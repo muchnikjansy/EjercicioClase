@@ -31,10 +31,19 @@
         </div>
         <div role="main" class="ui-content">
         </div>
-          <form method="post" action="demoform.asp">
+          <form method="post" action="form">
             <div class="ui-field-contain">
               <label for="Edificio">Edificio:</label>
               <input type="text" name="Edificio" id="Edificio">
+            </div>
+            <div class="ui-field-contain">
+              <label for="selectchoice" class="select">Carrera:</label>
+              <select name="selectchoice" id="select">
+                 <option value="1">Ing. Sistemas</option>
+                 <option value="2">Ing. Industrial</option>
+                 <option value="3">Arquitectura</option>
+                 <option value="4">Ing. Mecatronica</option>
+              </select>
             </div>
             <input type="submit" data-inline="true" value="Guardar">
           </form>
