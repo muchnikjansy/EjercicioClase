@@ -27,12 +27,12 @@ function app(db){
   //app.use('/', routes);
   //app.use('/users', users);
   app.get("/", function(req, res){
-		var file = path.join(__dirname, 'public/front-end/index1.html'); 
+		var file = path.join(__dirname, 'public/front-end/index1.html');
 		res.sendFile(file);
 	});
 
   //Levantamos la ruta del api
-  var apiRoute = require('./routes/api_v1')(db);
+  var apiRoute = require('./routes/apieje')(db);
   app.use("/api", apiRoute);
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {
@@ -64,6 +64,8 @@ function app(db){
       error: {}
     });
   });
+
+
 
   return app;
 }

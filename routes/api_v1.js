@@ -48,6 +48,9 @@ function api_router(db){
     // el nombre que continua despues de los << : >>
 
     reportJsonDocument.SeccionId = req.params.seccionId; //<<-----
+ // index1.html info ejemplo examen 2
+
+
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // TAREA:
