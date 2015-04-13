@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title></title>
+    <link rel="stylesheet" href="vendor/jqm/c/t/uchmnt.min.css"/>
+    <link rel="stylesheet" href="vendor/jqm/c/t/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="vendor/jqm/c/jquery.mobile.structure-1.4.5.min.css"/>
+    <style>
+       [data-field]{
+         font-size:0.8em;
+         font-weight:bolder;
+         padding:0.5em 0.25em;
+       }
+       label{
+         font-weight:bolder !important;
+       }
+       .negative{
+         background-color:#db0f0f !important;
+       }
+    </style>
+    <script src="vendor/jqm/j/jquery.min.js" ></script>
+    <script src="vendor/jqm/j/jquery.mobile.min.js" ></script>
+  </head>
+
+  <body>
+      <div data-role="page" id="pag1">
+        <div data-role="header" data-position="fixed">
+          <h1>EJEMPLO EXAMEN JANSY</h1>
+        </div>
+        <div role="main" class="ui-content">
+        </div>
+          <form method="post" action="form">
+            <div class="ui-field-contain">
+              <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre"/>
+            </div>
+            <div class="ui-field-contain">
+              <label for="Edad">Edad:</label>
+              <select name="edad" id="edad">
+                 <option value="19">19</option>
+                 <option value="20">20</option>
+                 <option value="21">21</option>
+                 <option value="22">22</option>
+                 <option value="23">23</option>
+              </select>
+            </div>
+            <div class="ui-field-contain">
+              <label for="fecha">Fecha de Nacimiento:</label>
+            <input type="text" name="fecha" id="fecha"/>
+            </div>
+            <div class="ui-field-contain">
+              <label for="sexo" class="sexo">Sexo:</label><br/>
+              <fieldset data-role="controlgroup">
+                <input type="radio" name="gender" id="gender" value="masculino"/><br/>Masculino<br/>
+                <input type="radio" name="gender" id="gender" value="femenino"/><br/>Femenino<br/>
+              </fieldset>
+            </div>
+            <hr/>
+            <input type="button" value="Guardar" id="btnGuardar"/>
+          </form>
+
+        <div data-role="footer" data-position="fixed">
+            <h3>UNICAH 2015</h3>
+        </div>
+      </div>
+      <script>
+      $("#pag1").on("pagecreate", function(e){
+          $("#btnGuardar").on("vclick", function(e){
+            var nombre = ($("#nombre").val());
+            var edad = ($("#edad").val());
+            var fecha = ($("#fecha").val());
+           var sexo =($("#gender").val());
+         $.post("/api/registro",{
+           "nombre":nombre ,
+           "edad":edad,
+           "fecha":fecha ,
+           "sexo":sexo
+           },
+         function(data,txt,rhx){
+           console.log(data);
+         },"json");
+          });
+      })
+       </script>
+  </body>
+</html>
